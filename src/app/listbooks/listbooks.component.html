@@ -1,0 +1,25 @@
+<h3>BOOKS</h3>
+<!--{{books | json}}-->
+<div *ngIf="books">
+
+  <div class="col">
+    Search By Title: 
+    <input type="text" name="title" id="title" [(ngModel)]="title" placeholder="Search by Title">                      
+</div>&nbsp;
+  <div class="row" >
+  <div class="col" *ngFor="let book of books">
+<div class="card" style="width: 18rem;">
+    <img src="assets/images/{{book.image_url}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-tittle">{{book.title}}</h5>
+      <p class="card-text">Author: {{book.author}} <br/>
+        Price: {{book.price | currency:'USD'}} <br/>
+   Published Year: {{book.published_year}} <br/>
+ISBN: {{book.isbn}} <br/>
+Stock: {{book.stock}}
+</p>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <a routerLink="/viewbook/{{book.id}}" class="btn btn-primary">View Book</a>
+    </div>
+  </div>
+</div>
